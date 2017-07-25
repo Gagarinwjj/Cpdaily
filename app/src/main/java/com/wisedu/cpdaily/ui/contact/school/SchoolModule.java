@@ -1,11 +1,8 @@
 package com.wisedu.cpdaily.ui.contact.school;
 
 
-import com.wisedu.cpdaily.api.UserApi;
-
 import dagger.Module;
 import dagger.Provides;
-import retrofit2.Retrofit;
 
 /**
  * module工厂
@@ -21,10 +18,5 @@ class SchoolModule {
     @Provides
     SchoolContract.View provideView() {
         return mView;
-    }
-
-    @Provides
-    UserApi provideUserApi(Retrofit retrofit) {
-        return retrofit.create(UserApi.class);
     }
 }

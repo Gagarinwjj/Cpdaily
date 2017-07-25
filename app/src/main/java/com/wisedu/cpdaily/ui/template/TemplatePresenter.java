@@ -13,11 +13,11 @@ import javax.inject.Inject;
 
 class TemplatePresenter extends BasePresenter<TemplateContract.View> implements TemplateContract
         .Presenter {
-    private UserApi mUserApi;
+    @Inject
+    UserApi mUserApi;
 
     @Inject
-    TemplatePresenter(@NonNull TemplateContract.View view, UserApi userApi) {
+    TemplatePresenter(@NonNull TemplateContract.View view) {
         mView = view;
-        mUserApi = userApi;
     }
 }

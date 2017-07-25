@@ -18,12 +18,12 @@ import javax.inject.Inject;
 
 class TeacherPresenter extends BasePresenter<TeacherContract.View> implements TeacherContract
         .Presenter {
-    private UserApi mUserApi;
+    @Inject
+    UserApi mUserApi;
 
     @Inject
-    TeacherPresenter(@NonNull TeacherContract.View view, UserApi userApi) {
+    TeacherPresenter(@NonNull TeacherContract.View view) {
         mView = view;
-        mUserApi = userApi;
     }
 
     @Override

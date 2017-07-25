@@ -20,12 +20,12 @@ import javax.inject.Inject;
  */
 
 class FindPresenter extends BasePresenter<FindContract.View> implements FindContract.Presenter {
-    private UserApi mUserApi;
+    @Inject
+    UserApi mUserApi;
 
     @Inject
-    FindPresenter(@NonNull FindContract.View view, UserApi userApi) {
+    FindPresenter(@NonNull FindContract.View view) {
         mView = view;
-        mUserApi = userApi;
     }
 
     @Override

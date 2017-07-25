@@ -2,6 +2,7 @@ package com.wisedu.cpdaily.ui.contact.teacher;
 
 
 import com.wisedu.cpdaily.di.components.NetComponent;
+import com.wisedu.cpdaily.di.modules.ApiModule;
 import com.wisedu.cpdaily.di.scope.ScopeFragment;
 
 import dagger.Component;
@@ -10,7 +11,7 @@ import dagger.Component;
  * 注入器
  */
 @ScopeFragment
-@Component(dependencies = NetComponent.class, modules = TeacherModule.class)
+@Component(dependencies = NetComponent.class, modules = {TeacherModule.class, ApiModule.class})
 interface TeacherComponent {
     void inject(TeacherFragment fragment);
 }

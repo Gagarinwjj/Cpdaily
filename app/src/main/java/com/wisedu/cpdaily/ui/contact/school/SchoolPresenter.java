@@ -17,12 +17,12 @@ import javax.inject.Inject;
 
 class SchoolPresenter extends BasePresenter<SchoolContract.View> implements SchoolContract
         .Presenter {
-    private UserApi mUserApi;
+    @Inject
+    UserApi mUserApi;
 
     @Inject
-    SchoolPresenter(@NonNull SchoolContract.View view, UserApi userApi) {
+    SchoolPresenter(@NonNull SchoolContract.View view) {
         mView = view;
-        mUserApi = userApi;
     }
 
     @Override

@@ -19,12 +19,12 @@ import javax.inject.Inject;
 
 class ClassmatePresenter extends BasePresenter<ClassmateContract.View> implements ClassmateContract
         .Presenter {
-    private UserApi mUserApi;
+    @Inject
+    UserApi mUserApi;
 
     @Inject
-    ClassmatePresenter(@NonNull ClassmateContract.View view, UserApi userApi) {
+    ClassmatePresenter(@NonNull ClassmateContract.View view) {
         mView = view;
-        mUserApi = userApi;
     }
 
     @Override

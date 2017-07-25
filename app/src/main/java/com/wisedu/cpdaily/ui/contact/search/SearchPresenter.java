@@ -19,12 +19,12 @@ import javax.inject.Inject;
 
 class SearchPresenter extends BasePresenter<SearchContract.View> implements SearchContract
         .Presenter {
-    private UserApi mUserApi;
+    @Inject
+    UserApi mUserApi;
 
     @Inject
-    SearchPresenter(@NonNull SearchContract.View view, UserApi userApi) {
+    SearchPresenter(@NonNull SearchContract.View view) {
         mView = view;
-        mUserApi = userApi;
     }
 
     @Override

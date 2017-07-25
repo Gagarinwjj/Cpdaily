@@ -2,7 +2,7 @@ package com.wisedu.cpdaily.di.modules;
 
 
 import com.wisedu.cpdaily.api.UserApi;
-import com.wisedu.cpdaily.di.scope.ScopeActivity;
+import com.wisedu.cpdaily.di.scope.ScopeFragment;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,7 +15,7 @@ import retrofit2.Retrofit;
 @Module
 public class ApiModule {
     @Provides
-    @ScopeActivity
+    @ScopeFragment
     public UserApi provideUserApi(Retrofit retrofit) {
         return retrofit.create(UserApi.class);
     }
