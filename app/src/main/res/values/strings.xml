@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Cpdaily</string>
+    <string name="search">搜索</string>
+    <string name="my_follows">我的关注 111</string>
+    <string name="sex_no_limit">性别不限</string>
+    <string name="academy_no_limit">学院不限</string>
+    <string name="grade_no_limit">年份不限</string>
+    <string name="search_classmate_teacher">搜索同学/教职工</string>
+    <string name="search_classmate">搜索同学</string>
+    <string name="search_teacher">搜索教职工</string>
+    <string name="contact_no_data">没有数据</string>
+    <string name="contact_no_student">没有找到这名同学哦~</string>
+    <string name="contact_no_teacher">没有找到这名教职工哦~</string>
 </resources>

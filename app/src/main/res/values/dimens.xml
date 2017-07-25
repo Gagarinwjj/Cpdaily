@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="titleBar_backArrow_padding">10dp</dimen>
+    <dimen name="titleBar_right_margin">15dp</dimen>
+    <dimen name="titleBar_left_margin">-15dp</dimen>
+    <dimen name="contact_space">20dp</dimen>
+    <dimen name="contact_divider">1dp</dimen>
+    <dimen name="search_bar_height">32dp</dimen>
+</resources>

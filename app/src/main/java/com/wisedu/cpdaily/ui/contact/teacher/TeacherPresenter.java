@@ -1,0 +1,49 @@
+package com.wisedu.cpdaily.ui.contact.teacher;
+
+import android.support.annotation.NonNull;
+
+import com.wisedu.cpdaily.api.UserApi;
+import com.wisedu.cpdaily.base.BaseObserver;
+import com.wisedu.cpdaily.base.BasePresenter;
+import com.wisedu.cpdaily.model.DepartVo;
+import com.wisedu.cpdaily.model.TeacherVo;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+/**
+ * 业务实现
+ */
+
+class TeacherPresenter extends BasePresenter<TeacherContract.View> implements TeacherContract
+        .Presenter {
+    private UserApi mUserApi;
+
+    @Inject
+    TeacherPresenter(@NonNull TeacherContract.View view, UserApi userApi) {
+        mView = view;
+        mUserApi = userApi;
+    }
+
+    @Override
+    public void getDeportVo(String departId) {
+        makeRequest(mUserApi.getDeportVo(departId), new BaseObserver<List<DepartVo>>() {
+            @Override
+            public void onNextDo(List<DepartVo> deportVos) {
+                mView.showDeportVo(deportVos);
+            }
+        });
+    }
+
+    @Override
+    public void getTeacher(String departId, int offset) {
+        makeRequest(mUserApi.getTeacher(null, departId, 1000, offset), new
+                BaseObserver<List<TeacherVo>>() {
+                    @Override
+                    public void onNextDo(List<TeacherVo> teacherVoList) {
+                        mView.showTeacher(teacherVoList);
+                    }
+                });
+    }
+}

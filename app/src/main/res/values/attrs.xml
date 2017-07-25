@@ -1,0 +1,25 @@
+<resources>
+    <declare-styleable name="titleBar">
+        <attr name="leftActionShow" format="boolean"/><!--左边返回按钮是否显示，默认true显示-->
+        <attr name="leftActionIcon" format="reference"/><!--返回按钮图标，有默认-->
+        <attr name="leftActionName" format="string"/><!--返回文本-->
+        <attr name="leftActionTextColor" format="color|reference"/><!--返回文本颜色，有默认-->
+        <attr name="leftActionTextSize" format="integer"/><!--返回文本大小，有默认，单位sp-->
+        <attr name="titleShow" format="boolean"/><!--标题是否显示，默认true显示-->
+        <attr name="titleName" format="string"/><!--标题名称-->
+        <attr name="titleTextColor" format="color"/><!--标题文本颜色，有默认-->
+        <attr name="titleTextSize" format="integer"/><!--标题文本大小，有默认，单位sp-->
+        <attr name="titleTextLength" format="integer"/><!--标题文本长度-->
+        <attr name="rightActionShow" format="boolean"/><!--右边操作是否显示，默认false不显示-->
+        <attr name="rightActionName" format="string"/><!--右边操作名称-->
+        <attr name="rightActionIcon" format="reference"/><!--右边操作图片-->
+        <attr name="rightActionIconShow" format="boolean"/><!--右边操作图片是否显示-->
+        <attr name="rightActionIconLeft" format="boolean"/><!--右边操作图片是否显示在左边-->
+        <attr name="rightActionTextColor" format="color|reference"/><!--右边操作文本颜色，有默认-->
+        <attr name="rightActionTextSize" format="integer"/><!--右边操作文本大小，有默认，单位sp-->
+        <attr name="titleBarBg" format="color|reference"/><!--控件背景色-->
+        <attr name="dividerShow" format="boolean"/><!--分割线是否显示，默认false不显示-->
+        <attr name="dividerColor" format="color|reference"/><!--分割线颜色，有默认-->
+        <attr name="dividerHeight" format="dimension"/><!--分割线高度，有默认，单位px-->
+    </declare-styleable>
+</resources>
