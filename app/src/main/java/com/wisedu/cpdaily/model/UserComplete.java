@@ -1,6 +1,8 @@
 package com.wisedu.cpdaily.model;
 
 
+import android.text.TextUtils;
+
 import java.util.List;
 
 /**
@@ -83,7 +85,9 @@ public class UserComplete {
     private List<?> menus;
 
     public String getSmallImg() {//内部封装，简化外部调用
-        return img + "!small";
+        if (!TextUtils.isEmpty(img) && img.endsWith(".jpg"))
+            return img + "!small";
+        return img;
     }
 
     public String getId() {

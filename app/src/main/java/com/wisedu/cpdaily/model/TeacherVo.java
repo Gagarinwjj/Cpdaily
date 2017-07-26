@@ -1,6 +1,8 @@
 package com.wisedu.cpdaily.model;
 
 
+import android.text.TextUtils;
+
 /**
  * 老师对象
  * Created by wjj on 2017/7/24 16:27.
@@ -32,7 +34,9 @@ public class TeacherVo {
     private String userRole;
 
     public String getSmallImg() {//内部封装，简化外部调用
-        return imgUrl + "!small";
+        if (!TextUtils.isEmpty(imgUrl) && imgUrl.endsWith(".jpg"))
+            return imgUrl + "!small";
+        return imgUrl;
     }
 
     public String getId() {
