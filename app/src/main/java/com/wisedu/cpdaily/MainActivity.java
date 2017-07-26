@@ -1,11 +1,11 @@
 package com.wisedu.cpdaily;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.wisedu.cpdaily.base.BaseActivity;
-import com.wisedu.cpdaily.ui.contact.find.FindActivity;
+import com.wisedu.cpdaily.ui.common.ContainerActivity;
+import com.wisedu.cpdaily.ui.contact.find.FindFragment;
 
 /**
  * 主界面
@@ -20,6 +20,6 @@ public class MainActivity extends BaseActivity {
     }
 
     public void openContact(View view) {
-        startActivity(new Intent(this, FindActivity.class));
+        startActivity(ContainerActivity.getIntent(this, FindFragment.class));
     }
 }

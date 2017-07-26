@@ -1,7 +1,6 @@
 package com.wisedu.cpdaily.ui.contact.teacher;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,9 +13,9 @@ import com.wisedu.cpdaily.base.BaseFragment;
 import com.wisedu.cpdaily.model.DepartVo;
 import com.wisedu.cpdaily.model.TeacherVo;
 import com.wisedu.cpdaily.ui.adapter.ItemClickAdapter;
+import com.wisedu.cpdaily.ui.common.ContainerActivity;
 import com.wisedu.cpdaily.ui.contact.adapter.DepartItemAdapter;
 import com.wisedu.cpdaily.ui.contact.adapter.TeacherAdapter;
-import com.wisedu.cpdaily.ui.contact.search.SearchActivity;
 import com.wisedu.cpdaily.ui.contact.search.SearchFragment;
 import com.wisedu.cpdaily.widget.TitleBar;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -29,6 +28,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.wisedu.cpdaily.ui.contact.search.SearchFragment.TYPE_TEACHER;
 
 
 /**
@@ -104,7 +105,7 @@ public class TeacherFragment extends BaseFragment implements TeacherContract.Vie
             departItemAdapter.setOnItemClickListener(new ItemClickAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
-                    startActivity(new Intent(TeacherFragment.this.getContext(), TeacherActivity
+                    startActivity(ContainerActivity.getIntent(getContext(), TeacherFragment
                             .class).putExtra(TeacherFragment.DEPARTMENT, mDeportVoList.get
                             (position)));
                 }
@@ -151,7 +152,7 @@ public class TeacherFragment extends BaseFragment implements TeacherContract.Vie
 
     @OnClick(R.id.fl_search)
     public void jumpSearch() {
-        startActivity(new Intent(this.getContext(), SearchActivity.class).putExtra(SearchFragment
-                .SEARCH_TYPE, SearchFragment.TYPE_TEACHER));
+        startActivity(ContainerActivity.getIntent(getContext(), SearchFragment.class)
+                .putExtra(SearchFragment.SEARCH_TYPE, TYPE_TEACHER));
     }
 }

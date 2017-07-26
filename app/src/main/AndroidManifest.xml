@@ -18,11 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.contact.find.FindActivity"/>
-        <activity android:name=".ui.contact.classmate.ClassmateActivity"/>
-        <activity android:name=".ui.contact.school.SchoolActivity"/>
-        <activity android:name=".ui.contact.search.SearchActivity"/>
-        <activity android:name=".ui.contact.teacher.TeacherActivity"/>
+        <activity android:name=".ui.common.ContainerActivity"/>
     </application>
 
 </manifest>

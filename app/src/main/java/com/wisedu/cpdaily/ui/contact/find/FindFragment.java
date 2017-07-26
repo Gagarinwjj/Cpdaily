@@ -1,7 +1,6 @@
 package com.wisedu.cpdaily.ui.contact.find;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,13 +19,13 @@ import com.wisedu.cpdaily.model.DisplayItem;
 import com.wisedu.cpdaily.model.Statistic;
 import com.wisedu.cpdaily.model.UserComplete;
 import com.wisedu.cpdaily.ui.adapter.ItemClickAdapter;
+import com.wisedu.cpdaily.ui.common.ContainerActivity;
 import com.wisedu.cpdaily.ui.contact.adapter.DisplayItemAdapter;
 import com.wisedu.cpdaily.ui.contact.adapter.UserCompleteAdapter;
-import com.wisedu.cpdaily.ui.contact.classmate.ClassmateActivity;
-import com.wisedu.cpdaily.ui.contact.school.SchoolActivity;
-import com.wisedu.cpdaily.ui.contact.search.SearchActivity;
+import com.wisedu.cpdaily.ui.contact.classmate.ClassmateFragment;
+import com.wisedu.cpdaily.ui.contact.school.SchoolFragment;
 import com.wisedu.cpdaily.ui.contact.search.SearchFragment;
-import com.wisedu.cpdaily.ui.contact.teacher.TeacherActivity;
+import com.wisedu.cpdaily.ui.contact.teacher.TeacherFragment;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -140,14 +139,12 @@ public class FindFragment extends BaseFragment implements FindContract.View {
             public void onItemClick(View view, int position) {
                 DisplayItem displayItem = mDisplayItemList.get(position);
                 if (Discover.FIND_CLASSMATE.equalsIgnoreCase(displayItem.getFlag())) {
-                    FindFragment.this.startActivity(new Intent(FindFragment.this.getContext(),
-                            ClassmateActivity.class));
+                    startActivity(ContainerActivity.getIntent(getContext(), ClassmateFragment
+                            .class));
                 } else if (Discover.FIND_TEACHER.equalsIgnoreCase(displayItem.getFlag())) {
-                    FindFragment.this.startActivity(new Intent(FindFragment.this.getContext(),
-                            TeacherActivity.class));
+                    startActivity(ContainerActivity.getIntent(getContext(), TeacherFragment.class));
                 } else if (Discover.FIND_MEDIA.equalsIgnoreCase(displayItem.getFlag())) {
-                    FindFragment.this.startActivity(new Intent(FindFragment.this.getContext(),
-                            SchoolActivity.class));
+                    startActivity(ContainerActivity.getIntent(getContext(), SchoolFragment.class));
                 } else if (Discover.FIND_TRIBE.equalsIgnoreCase(displayItem.getFlag())) {
                     toast("群聊");
                 }
@@ -207,10 +204,11 @@ public class FindFragment extends BaseFragment implements FindContract.View {
     @OnClick(R.id.fl_search)
     public void jumpSearch() {
         if (isTeacherOn) {//搜索同学/教职工
-            startActivity(new Intent(this.getContext(), SearchActivity.class));
+            startActivity(ContainerActivity.getIntent(getContext(), SearchFragment.class));
         } else {//搜索同学
-            startActivity(new Intent(this.getContext(), SearchActivity.class).putExtra
-                    (SearchFragment.SEARCH_TYPE, SearchFragment.TYPE_STUDENT));
+            startActivity(ContainerActivity.getIntent(getContext(), SearchFragment.class).putExtra
+                    (SearchFragment
+                            .SEARCH_TYPE, SearchFragment.TYPE_STUDENT));
         }
     }
 }
