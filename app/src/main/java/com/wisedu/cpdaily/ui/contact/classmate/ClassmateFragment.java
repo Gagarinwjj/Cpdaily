@@ -1,7 +1,6 @@
 package com.wisedu.cpdaily.ui.contact.classmate;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,8 +19,8 @@ import com.wisedu.cpdaily.model.Academy;
 import com.wisedu.cpdaily.model.PickItem;
 import com.wisedu.cpdaily.model.UserComplete;
 import com.wisedu.cpdaily.ui.adapter.ItemClickAdapter;
+import com.wisedu.cpdaily.ui.common.ContainerActivity;
 import com.wisedu.cpdaily.ui.contact.adapter.UserCompleteAdapter;
-import com.wisedu.cpdaily.ui.contact.search.SearchActivity;
 import com.wisedu.cpdaily.ui.contact.search.SearchFragment;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -272,7 +271,8 @@ public class ClassmateFragment extends BaseFragment implements ClassmateContract
 
     @OnClick(R.id.fl_search)
     public void jumpSearch() {
-        startActivity(new Intent(this.getContext(), SearchActivity.class).putExtra(SearchFragment
+        startActivity(ContainerActivity.getIntent(getContext(), SearchFragment.class).putExtra
+                (SearchFragment
                 .SEARCH_TYPE, SearchFragment.TYPE_STUDENT));
     }
 
