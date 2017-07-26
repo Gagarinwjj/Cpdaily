@@ -57,7 +57,6 @@ public class NetModule {
             public Response intercept(Chain chain) throws IOException {
                 Request.Builder newBuilder = chain.request().newBuilder();
                 newBuilder.addHeader("tenantId", "wisedu");//金智大学
-                newBuilder.addHeader("clientType", "cpdaily_student");
                 Request newRequest = newBuilder.build();
                 return chain.proceed(newRequest);
             }

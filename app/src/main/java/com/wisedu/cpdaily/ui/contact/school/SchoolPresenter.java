@@ -22,7 +22,7 @@ class SchoolPresenter extends BasePresenter<SchoolContract.View> implements Scho
 
     @Inject
     SchoolPresenter(@NonNull SchoolContract.View view) {
-        mView = view;
+        mBaseView = view;
     }
 
     @Override
@@ -30,7 +30,7 @@ class SchoolPresenter extends BasePresenter<SchoolContract.View> implements Scho
         makeRequest(mUserApi.getCampusMedia(), new BaseObserver<List<UserComplete>>() {
             @Override
             public void onNextDo(List<UserComplete> userCompleteList) {
-                mView.showCampusMedia(userCompleteList);
+                mBaseView.showCampusMedia(userCompleteList);
             }
         });
     }

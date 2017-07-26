@@ -25,7 +25,7 @@ class FindPresenter extends BasePresenter<FindContract.View> implements FindCont
 
     @Inject
     FindPresenter(@NonNull FindContract.View view) {
-        mView = view;
+        mBaseView = view;
     }
 
     @Override
@@ -33,7 +33,7 @@ class FindPresenter extends BasePresenter<FindContract.View> implements FindCont
         makeRequest(mUserApi.getDiscover(), new BaseObserver<Discover>() {
             @Override
             public void onNextDo(Discover discover) {
-                mView.showDiscover(discover);
+                mBaseView.showDiscover(discover);
             }
         });
     }
@@ -44,7 +44,7 @@ class FindPresenter extends BasePresenter<FindContract.View> implements FindCont
                 .PAGE.LIMIT, offset), new BaseObserver<List<UserComplete>>() {
             @Override
             public void onNextDo(List<UserComplete> userCompleteList) {
-                mView.showFollowers(userCompleteList);
+                mBaseView.showFollowers(userCompleteList);
             }
         });
     }
@@ -55,7 +55,7 @@ class FindPresenter extends BasePresenter<FindContract.View> implements FindCont
                 BaseObserver<Statistic>() {
                     @Override
                     public void onNextDo(Statistic statistic) {
-                        mView.showStatistic(statistic);
+                        mBaseView.showStatistic(statistic);
                     }
                 });
     }

@@ -18,6 +18,6 @@ class TemplatePresenter extends BasePresenter<TemplateContract.View> implements 
 
     @Inject
     TemplatePresenter(@NonNull TemplateContract.View view) {
-        mView = view;
+        mBaseView = view;
     }
 }

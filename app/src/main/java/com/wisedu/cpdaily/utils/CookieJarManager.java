@@ -26,20 +26,13 @@ public class CookieJarManager implements CookieJar {
         cookieList.add(new Cookie
                 .Builder()
                 .name("sessionToken")
-                .value("1138592b-82f6-46b3-9d23-ce1006f5180d")
+                .value("fff8683b-356f-424f-a58e-b1de62244727")
                 .hostOnlyDomain(Constants.URL.DOMAIN)
                 .expiresAt(-1)
                 .build());
         cookieList.add(new Cookie.Builder()
                 .name("tenantId")
                 .value("wisedu")
-                .hostOnlyDomain(Constants.URL.DOMAIN)
-                .expiresAt(-1)
-                .build());
-        cookieList.add(new Cookie
-                .Builder()
-                .name("clientType")
-                .value("cpdaily_student")
                 .hostOnlyDomain(Constants.URL.DOMAIN)
                 .expiresAt(-1)
                 .build());

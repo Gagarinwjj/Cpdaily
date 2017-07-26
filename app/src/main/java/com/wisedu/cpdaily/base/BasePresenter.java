@@ -20,18 +20,18 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class BasePresenter<V extends IBaseView> implements IBasePresenter<V> {
-    protected V mView;//依赖注入进来
+    protected V mBaseView;//依赖注入进来
     private CompositeDisposable composite = new CompositeDisposable();
 
     @Override
     public void attachView(@NonNull V v) {
-        mView = v;
+        mBaseView = v;
     }
 
     @Override
     public void detachView() {
         composite.clear();
-        mView = null;
+        mBaseView = null;
     }
 
     public <T> void makeRequest(Observable<Wrapper<T>> observable, BaseObserver<T>

@@ -23,7 +23,7 @@ class TeacherPresenter extends BasePresenter<TeacherContract.View> implements Te
 
     @Inject
     TeacherPresenter(@NonNull TeacherContract.View view) {
-        mView = view;
+        mBaseView = view;
     }
 
     @Override
@@ -31,7 +31,7 @@ class TeacherPresenter extends BasePresenter<TeacherContract.View> implements Te
         makeRequest(mUserApi.getDeportVo(departId), new BaseObserver<List<DepartVo>>() {
             @Override
             public void onNextDo(List<DepartVo> deportVos) {
-                mView.showDeportVo(deportVos);
+                mBaseView.showDeportVo(deportVos);
             }
         });
     }
@@ -42,7 +42,7 @@ class TeacherPresenter extends BasePresenter<TeacherContract.View> implements Te
                 BaseObserver<List<TeacherVo>>() {
                     @Override
                     public void onNextDo(List<TeacherVo> teacherVoList) {
-                        mView.showTeacher(teacherVoList);
+                        mBaseView.showTeacher(teacherVoList);
                     }
                 });
     }

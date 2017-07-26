@@ -24,7 +24,7 @@ class SearchPresenter extends BasePresenter<SearchContract.View> implements Sear
 
     @Inject
     SearchPresenter(@NonNull SearchContract.View view) {
-        mView = view;
+        mBaseView = view;
     }
 
     @Override
@@ -33,7 +33,7 @@ class SearchPresenter extends BasePresenter<SearchContract.View> implements Sear
                 offset), new BaseObserver<List<UserComplete>>() {
             @Override
             public void onNextDo(List<UserComplete> userCompleteList) {
-                mView.showClassmates(userCompleteList);
+                mBaseView.showClassmates(userCompleteList);
             }
         });
     }
@@ -44,7 +44,7 @@ class SearchPresenter extends BasePresenter<SearchContract.View> implements Sear
                 BaseObserver<List<TeacherVo>>() {
                     @Override
                     public void onNextDo(List<TeacherVo> teacherVoList) {
-                        mView.showTeacher(teacherVoList);
+                        mBaseView.showTeacher(teacherVoList);
                     }
                 });
     }

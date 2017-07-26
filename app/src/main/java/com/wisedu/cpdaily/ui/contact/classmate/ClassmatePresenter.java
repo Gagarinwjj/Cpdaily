@@ -24,7 +24,7 @@ class ClassmatePresenter extends BasePresenter<ClassmateContract.View> implement
 
     @Inject
     ClassmatePresenter(@NonNull ClassmateContract.View view) {
-        mView = view;
+        mBaseView = view;
     }
 
     @Override
@@ -34,7 +34,7 @@ class ClassmatePresenter extends BasePresenter<ClassmateContract.View> implement
                 .LIMIT, offset), new BaseObserver<List<UserComplete>>() {
             @Override
             public void onNextDo(List<UserComplete> userCompleteList) {
-                mView.showClassmates(userCompleteList);
+                mBaseView.showClassmates(userCompleteList);
             }
         });
     }
@@ -44,7 +44,7 @@ class ClassmatePresenter extends BasePresenter<ClassmateContract.View> implement
         makeRequest(mUserApi.getAcademy(), new BaseObserver<List<Academy>>() {
             @Override
             public void onNextDo(List<Academy> academies) {
-                mView.initAcademy(academies);
+                mBaseView.initAcademy(academies);
             }
         });
     }
