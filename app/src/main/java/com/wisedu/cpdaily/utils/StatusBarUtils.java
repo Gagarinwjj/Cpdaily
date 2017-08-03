@@ -79,6 +79,8 @@ public class StatusBarUtils {
                 } else {
                     activity.getWindow().clearFlags(WindowManager.LayoutParams
                             .FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    activity.getWindow().getDecorView().setSystemUiVisibility(View
+                            .SYSTEM_UI_FLAG_VISIBLE);
                 }
                 result = TYPE_MARSHMALLOW;
             }
@@ -156,6 +158,8 @@ public class StatusBarUtils {
                     } else {
                         activity.getWindow().clearFlags(WindowManager.LayoutParams
                                 .FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        activity.getWindow().getDecorView().setSystemUiVisibility(View
+                                .SYSTEM_UI_FLAG_VISIBLE);
                     }
                 }
             } catch (Exception e) {
