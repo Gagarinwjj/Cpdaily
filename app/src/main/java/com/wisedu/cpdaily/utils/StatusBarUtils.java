@@ -9,8 +9,6 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-
 /**
  * 深色状态栏：魅族、小米、6.0系统
  */
@@ -34,7 +32,7 @@ public class StatusBarUtils {
             //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             //3、全屏设置
             window.getDecorView().setSystemUiVisibility(
-                    SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
     }
 
@@ -68,17 +66,16 @@ public class StatusBarUtils {
     public static int setStatusBarMode(Activity activity, boolean dark) {
         int result = TYPE_OTHER;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if (miuiSetStatusBarLightMode(activity, dark)) {
+            if (miuiSetStatusBarLightMode(activity, dark)) {//品牌优先？
                 result = TYPE_MIUI;
             } else if (flymeSetStatusBarLightMode(activity.getWindow(), dark)) {
                 result = TYPE_FLYME;
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//系统优先？
                 if (dark) {
                     activity.getWindow().addFlags(WindowManager.LayoutParams
                             .FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    activity.getWindow().getDecorView().setSystemUiVisibility(
-                            SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View
-                                    .SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    activity.getWindow().getDecorView().setSystemUiVisibility(View
+                            .SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                 } else {
                     activity.getWindow().clearFlags(WindowManager.LayoutParams
                             .FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -152,12 +149,13 @@ public class StatusBarUtils {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     //开发版 7.7.13 及以后版本采用了系统API，旧方法无效但不会报错，所以两个方式都要加上
                     if (dark) {
-                        activity.getWindow().getDecorView().setSystemUiVisibility(
-                                SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View
-                                        .SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-                    } else {
+                        activity.getWindow().addFlags(WindowManager.LayoutParams
+                                .FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                         activity.getWindow().getDecorView().setSystemUiVisibility(View
-                                .SYSTEM_UI_FLAG_VISIBLE);
+                                .SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    } else {
+                        activity.getWindow().clearFlags(WindowManager.LayoutParams
+                                .FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                     }
                 }
             } catch (Exception e) {
